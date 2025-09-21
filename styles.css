@@ -287,16 +287,24 @@ footer {
         display: none; /* Simple mobile approach - can be enhanced with hamburger menu */
     }
     
+    .hero {
+        padding-top: 30px; /* More space from top */
+    }
+    
+    .hero-logo {
+        margin-bottom: 30px;
+    }
+    
+    .hero-logo-img {
+        height: 300px; /* Bigger on mobile */
+    }
+    
     .hero-content h2 {
         font-size: 2.5rem;
     }
     
     .hero-content p {
         font-size: 1.1rem;
-    }
-    
-    .hero-logo-img {
-        height: 120px;
     }
     
     .crafts-grid {
@@ -314,12 +322,20 @@ footer {
 }
 
 @media (max-width: 480px) {
-    .hero-content h2 {
-        font-size: 2rem;
+    .hero {
+        padding-top: 25px; /* Even more space on small phones */
+    }
+    
+    .hero-logo {
+        margin-bottom: 25px;
     }
     
     .hero-logo-img {
-        height: 100px;
+        height: 300px; /* Still big on small phones */
+    }
+    
+    .hero-content h2 {
+        font-size: 2rem;
     }
     
     .cta-button {
