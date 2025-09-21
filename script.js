@@ -14,6 +14,14 @@ document.addEventListener('DOMContentLoaded', function() {
             if (targetSection) {
                 const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
                 
+                // Track navigation clicks in Google Analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'navigation_click', {
+                        'section': targetId,
+                        'event_category': 'engagement'
+                    });
+                }
+                
                 window.scrollTo({
                     top: offsetTop,
                     behavior: 'smooth'
@@ -36,6 +44,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const ctaButton = document.querySelector('.cta-button');
     if (ctaButton) {
         ctaButton.addEventListener('click', function() {
+            // Track CTA button clicks
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'cta_click', {
+                    'button_text': 'Shop Now',
+                    'event_category': 'engagement'
+                });
+            }
+            
             document.getElementById('crafts').scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
@@ -45,8 +61,27 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add click handlers for buy buttons
     const buyButtons = document.querySelectorAll('.buy-button');
-    buyButtons.forEach(button => {
+    buyButtons.forEach((button, index) => {
         button.addEventListener('click', function() {
+            const craftItem = this.closest('.craft-item');
+            const craftName = craftItem.querySelector('h3').textContent;
+            const price = craftItem.querySelector('.price').textContent;
+            
+            // Track add to cart events for Google Analytics Enhanced Ecommerce
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'add_to_cart', {
+                    'currency': 'USD',
+                    'value': parseFloat(price.replace('$', '')),
+                    'items': [{
+                        'item_id': 'craft_' + (index + 1),
+                        'item_name': craftName,
+                        'category': 'Crafts',
+                        'price': parseFloat(price.replace('$', '')),
+                        'quantity': 1
+                    }]
+                });
+            }
+            
             alert('Thank you for your interest! Cart functionality coming soon.');
         });
     });
@@ -62,6 +97,15 @@ document.addEventListener('DOMContentLoaded', function() {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
+                
+                // Track when craft items come into view
+                const craftName = entry.target.querySelector('h3')?.textContent;
+                if (craftName && typeof gtag !== 'undefined') {
+                    gtag('event', 'view_item', {
+                        'item_name': craftName,
+                        'event_category': 'engagement'
+                    });
+                }
             }
         });
     }, observerOptions);
