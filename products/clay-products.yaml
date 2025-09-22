@@ -1,0 +1,26 @@
+products:
+  - id: rose-snake.jpg
+    name: Pink Rose Snake
+    description: Handcrafted clay figurine of adorable pink snake with roses perfect for gifts or decoration.
+    price: 6.00
+    image: products/images/rose-snake.jpg
+  - id: pinkshell-turtle.jpg
+    name: Pink Shell Turtle
+    description: Cute clay turtle with a pink shell and turquoise body with purple flowers, perfect for gifts or decoration.
+    price: 6.00
+    image: products/images/pinkshell-turtle.jpg
+  - id: blue-whale.jpg
+    name: Blue Whale
+    description: Charming, cute blue whale clay figurine for gifts or decoration.
+    price: 6.00
+    image: products/images/blue-whale.jpg
+  - id: pink-family-octopus.jpg
+    name: Pink Family  of Octopi
+    description: Adorable family of pink octopi clay figurines, perfect for gifts or decoration.
+    price: 6.00
+    image: products/images/pink-family-octopus.jpg
+  - id: 2baby-blue-octopus.jpg
+    name: 2 Baby Blue Octopi
+    description: Cute pair of baby blue octopi clay figurines, perfect for gifts or decoration.
+    price: 4.00
+    image: products/images/2baby-blue-octopus.jpg

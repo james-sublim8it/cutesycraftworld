@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const craftItem = this.closest('.craft-item');
             const craftName = craftItem.querySelector('h3').textContent;
             const price = craftItem.querySelector('.price').textContent;
+            const productId = this.getAttribute('data-product-id') || 'craft_' + (index + 1);
             
             // Track add to cart events for Google Analytics Enhanced Ecommerce
             if (typeof gtag !== 'undefined') {
@@ -73,16 +74,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     'currency': 'USD',
                     'value': parseFloat(price.replace('$', '')),
                     'items': [{
-                        'item_id': 'craft_' + (index + 1),
+                        'item_id': productId,
                         'item_name': craftName,
-                        'category': 'Crafts',
+                        'category': 'Clay Figurines',
                         'price': parseFloat(price.replace('$', '')),
                         'quantity': 1
                     }]
                 });
             }
             
-            alert('Thank you for your interest! Cart functionality coming soon.');
+            alert(`${craftName} has been added to your cart! Thank you for your interest. Full cart functionality coming soon.`);
         });
     });
     
